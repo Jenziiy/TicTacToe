@@ -7,8 +7,25 @@
 // this.style.backgroundColor == 'hotpink' ? this.style.backgroundColor = 'white' : this.style.backgroundColor ='hotpink';
 // }
 
-(function () {
+
+
+const GameBoard = (function () {
   'use strict'
-  gameBoard: [];
+  gameBoard: [X,O,X,O];
 
 }());
+
+const DisplayController = (function () {
+  'use strict'
+
+}());
+
+const Player = (name, state) => {
+  const getState = () => {
+
+  }
+
+  const setState = () => {
+    
+  }
+};
