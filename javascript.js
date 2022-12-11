@@ -22,7 +22,7 @@ const ticTacToeModule = (function () {
 
       for (let columnIndex = 0; columnIndex < _boardSize; columnIndex++) {
         const column = document.createElement('div');
-        column.classList.add('tile','column');
+        column.classList.add('tile');
 
         row.appendChild(column);
       }
