@@ -1,4 +1,5 @@
 const ticTacToeModule = (function () {
+  'use strict'
 
  let config = (function config() {
     let _count = 0;
@@ -8,10 +9,8 @@ const ticTacToeModule = (function () {
 
     return { _count, _boardSize, _mark, tiles }
   })();
-  'use strict'
-  console.log(config._boardSize);
   
-  function _displayController() {
+  function _gameController() {
     // add eventlistener for any tile.
     document.body.addEventListener('click', (e) => { if ( e.target.classList == 'tile' ) {
       setMark(e.target);
@@ -51,19 +50,14 @@ const ticTacToeModule = (function () {
                 pt.innerText = '';
               }, 3000);
             }
-          
           }
-          console.log(arrO, arrX);
         }
    } } )
   };
 
-  function _setBoardSize(boardSize) {
-    _boardSize = boardSize
-   }
-
   function _initializeGame() {
     _createBoard();
+    _gameController();
   };
 
   function _createBoard() {
@@ -88,7 +82,6 @@ const ticTacToeModule = (function () {
   config._mark == 'x' ? config._mark = 'o' : config._mark = 'x';
   }
   
-  _createBoard();
-  _displayController();
+_initializeGame();
 
 })();
