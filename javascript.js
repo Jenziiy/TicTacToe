@@ -1,10 +1,14 @@
 const ticTacToeModule = (function () {
+
+  function config(boardSize) {
+    let _count = 0;
+    let _boardSize = 3 || boardSize;
+    let _mark = 'x';
+    let tiles = document.getElementsByClassName('tile');
+
+    return { _count, _boardSize, _mark, tiles }
+  }
   'use strict'
-  let _winner = false;
-  let _count = 0;
-  let _boardSize = 3;
-  let _mark = 'x';
-  let tiles = document.getElementsByClassName('tile');
 
   
   function _displayController() {
