@@ -1,24 +1,24 @@
 const ticTacToeModule = (function () {
 
-  function config(boardSize) {
+ let config = (function config() {
     let _count = 0;
-    let _boardSize = 3 || boardSize;
+    let _boardSize = 3;
     let _mark = 'x';
     let tiles = document.getElementsByClassName('tile');
 
     return { _count, _boardSize, _mark, tiles }
-  }
+  })();
   'use strict'
-
+  console.log(config._boardSize);
   
   function _displayController() {
     // add eventlistener for any tile.
     document.body.addEventListener('click', (e) => { if ( e.target.classList == 'tile' ) {
       setMark(e.target);
-      _count++;
+      config._count++;
 
-      if (_count > 3){
-        let scoresArr = Array.from(tiles).map(tile=>tile.textContent);
+      if (config._count > 3){
+        let scoresArr = Array.from(config.tiles).map(tile=>tile.textContent);
            let arrX = [];
            let arrO = []; 
           console.log(scoresArr.indexOf('x'));
@@ -38,7 +38,8 @@ const ticTacToeModule = (function () {
               
               pt.innerText = 'PLAYER O WON!!!! SUPERRAD';
               setTimeout(() => {
-                Array.from(tiles).forEach(tile => tile.innerText = "" );
+                Array.from(config.tiles).forEach(tile => tile.innerText = "" );
+                pt.innerText = '';
               }, 3000);
             }
             else if(arrX.includes('0,1,2') || arrX.includes('0,4,8') ||arrX.includes('2,4,6') ||arrX.includes('3,4,5') 
@@ -46,10 +47,10 @@ const ticTacToeModule = (function () {
               console.log('congrats X won');
               pt.innerText = 'PLAYER X WON!!!! SUPER AMAZE';
               setTimeout(() => {
-                Array.from(tiles).forEach(tile => tile.innerText = '');
+                Array.from(config.tiles).forEach(tile => tile.innerText = '');
+                pt.innerText = '';
               }, 3000);
             }
-
           
           }
           console.log(arrO, arrX);
@@ -68,11 +69,11 @@ const ticTacToeModule = (function () {
   function _createBoard() {
     const board = document.querySelector('.board');
 
-    for(let rowIndex = 0; rowIndex < _boardSize; rowIndex++) {
+    for(let rowIndex = 0; rowIndex < config._boardSize; rowIndex++) {
       const row = document.createElement('div');
       row.classList.add('row');
 
-      for (let columnIndex = 0; columnIndex < _boardSize; columnIndex++) {
+      for (let columnIndex = 0; columnIndex <config. _boardSize; columnIndex++) {
         const column = document.createElement('div');
         column.classList.add('tile');
 
@@ -83,8 +84,8 @@ const ticTacToeModule = (function () {
   }
 
   function setMark(dis) {
-  dis.textContent == '' ? dis.textContent = _mark : dis.textContent = '';
-  _mark == 'x' ? _mark = 'o' : _mark = 'x';
+  dis.textContent == '' ? dis.textContent = config._mark : dis.textContent = '';
+  config._mark == 'x' ? config._mark = 'o' : config._mark = 'x';
   }
   
   _createBoard();
