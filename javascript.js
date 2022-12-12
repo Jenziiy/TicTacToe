@@ -35,7 +35,7 @@ const ticTacToeModule = (function () {
             if(arrO.includes('0,1,2') || arrO.includes('0,4,8') ||arrO.includes('2,4,6') ||arrO.includes('3,4,5') 
             ||arrO.includes('6,7,8') || arrO.includes('0,3,6') || arrO.includes('1,4,7') ||arrO.includes('2,5,8')) {
               
-              pt.innerText = 'PLAYER O WON!!!! SUPERRAD';
+              pt.innerText = ' ~ PLAYER O WON!!!! SUPERRAD';
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = "" );
                 pt.innerText = '';
@@ -44,12 +44,20 @@ const ticTacToeModule = (function () {
             else if(arrX.includes('0,1,2') || arrX.includes('0,4,8') ||arrX.includes('2,4,6') ||arrX.includes('3,4,5') 
             ||arrX.includes('6,7,8') || arrX.includes('0,3,6') || arrX.includes('1,4,7') ||arrX.includes('2,5,8')) {
               console.log('congrats X won');
-              pt.innerText = 'PLAYER X WON!!!! SUPER AMAZE';
+              pt.innerText = '~ PLAYER X WON!!!! SUPER AMAZE';
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = '');
                 pt.innerText = '';
               }, 3000);
-            }
+            } 
+            else if(Array.from(config.tiles).every(tile => tile.innerText != '')){
+              pt.innerText = ' ~ NO WINNERZ. TRY AGAIN';
+              setTimeout(() => {
+                Array.from(config.tiles).forEach(tile => tile.innerText = '');
+                pt.innerText = '';
+              }, 2000);
+             
+          } 
           }
         }
    } } )
@@ -78,7 +86,7 @@ const ticTacToeModule = (function () {
   }
 
   function setMark(dis) {
-  dis.textContent == '' ? dis.textContent = config._mark : dis.textContent = '';
+  dis.textContent == '' ? dis.textContent = config._mark : dis.textContent = dis.textContent;
   config._mark == 'x' ? config._mark = 'o' : config._mark = 'x';
   }
   
