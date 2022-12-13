@@ -39,7 +39,7 @@ const ticTacToeModule = (function () {
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = "" );
                 pt.innerText = '';
-              }, 3000);
+              }, 1000);
             }
             else if(arrX.includes('0,1,2') || arrX.includes('0,4,8') ||arrX.includes('2,4,6') ||arrX.includes('3,4,5') 
             ||arrX.includes('6,7,8') || arrX.includes('0,3,6') || arrX.includes('1,4,7') ||arrX.includes('2,5,8')) {
@@ -48,7 +48,7 @@ const ticTacToeModule = (function () {
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = '');
                 pt.innerText = '';
-              }, 3000);
+              }, 1000);
             } 
             else if(Array.from(config.tiles).every(tile => tile.innerText != '')){
               pt.innerText = ' ~ NO WINNERZ. TRY AGAIN';
