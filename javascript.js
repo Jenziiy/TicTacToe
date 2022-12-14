@@ -44,7 +44,7 @@ const ticTacToeModule = (function () {
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = "" );
                 pt.innerText = '';
-              }, 2500);
+              }, 2000);
             }
             else if( isSubset(arrX, ['0','1','2']) || isSubset(arrX, ['0','4','8']) ||
                      isSubset(arrX, ['0','3','6']) || isSubset(arrX, ['1','4','7']) ||
@@ -55,14 +55,14 @@ const ticTacToeModule = (function () {
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = '');
                 pt.innerText = '';
-              }, 2500);
+              }, 2000);
             } 
             else if(Array.from(config.tiles).every(tile => tile.innerText != '')){
               pt.innerText = ' ~ NO WINNERZ. TRY AGAIN';
               setTimeout(() => {
                 Array.from(config.tiles).forEach(tile => tile.innerText = '');
                 pt.innerText = '';
-              }, 2500);
+              }, 2000);
              
           } 
           }
